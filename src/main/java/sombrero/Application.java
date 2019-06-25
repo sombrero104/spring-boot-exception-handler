@@ -34,7 +34,35 @@ public class Application {
      * @RequestMapping({"${server.error.path:${error.path:/error}}"})
      *      => (1) server.error.path 프로퍼티즈가 있으면 사용, 없으면 (2) 사용.
      *      => (2) error.path 프로퍼티즈가 있으면 사용, 없으면 '/error' 사용.
+     *          (현재 새로 정의한 프로퍼티즈가 없으므로 '/error' 사용.
      * public class BasicErrorController extends AbstractErrorController {
+     * }
+     *
+     *
+     * BasicErrorController 는 ErrorController 를 구현한 것.
+     * 새로 만들 경우 ErrorController를 구현하여 만들면 BasicErrorController 대신 동작.
+     * BasicErrorController를 상속받아서 구현하는 것을 권장.
+     *
+     */
+
+
+    /**
+     * 커스텀 에러 페이지
+     * ● 상태 코드 값에 따라 에러 페이지 보여주기
+     * ● /src/main/resources/static/error/
+     *      또는 /src/main/resources/template/error/
+     * ● 404.html
+     * ● 5xx.html
+     *          => 위에서 만든 커스텀 에러 페이지에 걸리지 않으면
+     *              BasicErrorController 가 처리해서 디폴 에러 페이지가 나오게 됨.
+     *
+     */
+
+    /**
+     * 동적인 커스텀 에러 페이지
+     * ● ErrorViewResolver 구현 (implements ErrorViewResolver)
+     *  서버단에서 특정 에러 처리가 동작하게 하거나,
+     *  model에 에러 정보를 담아서 동적으로 에러 페이지를 보여줄 수 있음.
      *
      */
 }
