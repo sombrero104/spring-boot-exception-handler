@@ -26,4 +26,15 @@ public class Application {
      * {"timestamp":"2019-06-25T11:11:21.939+0000","status":404,"error":"Not Found","message":"No message available","path":"/"}
      *
      */
+
+    /**
+     * BasicErrorController
+     *
+     * @Controller
+     * @RequestMapping({"${server.error.path:${error.path:/error}}"})
+     *      => (1) server.error.path 프로퍼티즈가 있으면 사용, 없으면 (2) 사용.
+     *      => (2) error.path 프로퍼티즈가 있으면 사용, 없으면 '/error' 사용.
+     * public class BasicErrorController extends AbstractErrorController {
+     *
+     */
 }
